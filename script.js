@@ -1,23 +1,16 @@
 function stringChop(str, size) {
   // your code here
-	let words = str.split(" ");
-    let chunks = [];
-    let currentChunk = [];
+  size = parseInt(size, 10); // Ensure size is a number
+  if (size <= 0 || isNaN(size)) return []; // Handle invalid chunk size
 
-    for (let word of words) {
-        if (currentChunk.join(" ").length + word.length + 1 <= size) {
-            currentChunk.push(word);
-        } else {
-            chunks.push(currentChunk.join(" "));
-            currentChunk = [word];
-        }
-    }
-    if (currentChunk.length) chunks.push(currentChunk.join(" "));
-
-    return chunks;
+  let chunks = [];
+  for (let i = 0; i < str.length; i += size) {
+    chunks.push(str.substring(i, i + size)); // Extract chunk of 'size' characters
+  }
+  return chunks;
 }
 
 // Do not change the code below
 const str = prompt("Enter String.");
 const size = prompt("Enter Chunk Size.");
-alert(stringChop(str, size));
+alert(stringChop(str, size)); 
