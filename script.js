@@ -1,7 +1,8 @@
 function stringChop(str, size) {
   // your code here
-  size = parseInt(size, 10); // Ensure size is a number
-  if (size <= 0 || isNaN(size)) return []; // Handle invalid chunk size
+   size = parseInt(size, 10); // Convert size to a number
+
+  if (isNaN(size) || size <= 0) return []; // Handle invalid input
 
   let chunks = [];
   for (let i = 0; i < str.length; i += size) {
@@ -12,5 +13,5 @@ function stringChop(str, size) {
 
 // Do not change the code below
 const str = prompt("Enter String.");
-const size = prompt("Enter Chunk Size.");
+const size = prompt("Enter Chunk Size."); 
 alert(stringChop(str, size)); 
